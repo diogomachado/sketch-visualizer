@@ -2,6 +2,7 @@
 
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Because it includes (typescript, jest, test-library and a initial configuration)
 - Added .editorconfig to hold the project protected of different IDE configurations
+- The library `react-router-dom@6` was used to provide the capatility of have two routes
 
 ## Available Scripts
 
@@ -27,3 +28,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
+
+## Improvements
+
+- Add SEO title and tags
