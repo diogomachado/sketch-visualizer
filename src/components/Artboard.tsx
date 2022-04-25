@@ -10,15 +10,16 @@ export default function Artboard({
   image: string;
 }) {
   return (
-    <Link to="/artboard">
-      <div className="artboard" data-testid="artboard">
+    <Link to="/artboard" className="artboard" data-testid="artboard">
+      <div className="artboard-image-wrapper">
         <img
+          className="artboard-image"
           data-testid="artboard-image"
-          src="https://via.placeholder.com/300x300"
+          src={image}
           alt="Artboard"
         />
-        <p>{title}</p>
       </div>
+      <p className="artboard-title">{title}</p>
     </Link>
   );
 }

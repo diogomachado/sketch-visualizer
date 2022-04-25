@@ -56,6 +56,8 @@ export default function DocumentsPage() {
           id: response.data.share.identifier,
           title: response.data.share.version.document.name,
         });
+        setArtboards(response.data.share.version.document.artboards.entries);
+        console.log(response.data.share.version.document.artboards.entries);
       });
   }, []);
 
@@ -64,30 +66,13 @@ export default function DocumentsPage() {
       <Header title={document.title} />
 
       <section className="grid-documents">
-        <Artboard
-          title="Artboard title"
-          image="https://via.placeholder.com/300x300"
-        />
-        <Artboard
-          title="Artboard title"
-          image="https://via.placeholder.com/300x300"
-        />
-        <Artboard
-          title="Artboard title"
-          image="https://via.placeholder.com/300x300"
-        />
-        <Artboard
-          title="Artboard title"
-          image="https://via.placeholder.com/300x300"
-        />
-        <Artboard
-          title="Artboard title"
-          image="https://via.placeholder.com/300x300"
-        />
-        <Artboard
-          title="Artboard title"
-          image="https://via.placeholder.com/300x300"
-        />
+        {artboards.map((artboard: any, index: number) => (
+          <Artboard
+            key={index}
+            title={artboard.name}
+            image={artboard.files[0].thumbnails[1].url}
+          />
+        ))}
       </section>
     </div>
   );
