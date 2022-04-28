@@ -80,6 +80,7 @@ export default function DocumentsPage() {
           >
             <Artboard
               title={artboard.name}
+              maxHeight={true}
               image={artboard.files[0].thumbnails[1].url}
             />
           </Link>

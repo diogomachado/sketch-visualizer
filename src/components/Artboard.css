@@ -15,6 +15,10 @@
 
 .artboard-image {
   max-width: 100%;
+  max-height: calc(100vh - 170px);
+}
+
+.artboard-image.max {
   max-height: 380px;
 }
 
