@@ -4,3 +4,12 @@
   grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
   padding: 24px 16px 16px 16px;
 }
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link:hover {
+  opacity: 0.8;
+}

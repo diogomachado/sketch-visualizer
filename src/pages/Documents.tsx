@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Artboard from "../components/Artboard";
 import Header from "../components/Header";
 import { IDocument } from "../models/document.interface";
 import "./Documents.css";
+import { setLocalStorage } from "../utils/localStorage";
 
 export default function DocumentsPage() {
   const [document, setDocument] = useState({} as IDocument);
@@ -58,6 +60,10 @@ export default function DocumentsPage() {
         });
         setArtboards(response.data.share.version.document.artboards.entries);
         console.log(response.data.share.version.document.artboards.entries);
+        setLocalStorage(
+          "artboards",
+          response.data.share.version.document.artboards.entries
+        );
       });
   }, []);
 
@@ -67,11 +73,16 @@ export default function DocumentsPage() {
 
       <section className="grid-documents">
         {artboards.map((artboard: any, index: number) => (
-          <Artboard
+          <Link
+            to={`/artboard/${index.toString()}`}
             key={index}
-            title={artboard.name}
-            image={artboard.files[0].thumbnails[1].url}
-          />
+            className="link"
+          >
+            <Artboard
+              title={artboard.name}
+              image={artboard.files[0].thumbnails[1].url}
+            />
+          </Link>
         ))}
       </section>
     </div>

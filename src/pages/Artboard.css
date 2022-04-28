@@ -1,0 +1,7 @@
+.artboard-visualizer {
+  background: #ccc;
+  display: flex;
+  height: calc(100vh - 64px);
+  align-items: center;
+  justify-content: center;
+}
