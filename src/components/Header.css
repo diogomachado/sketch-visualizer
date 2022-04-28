@@ -1,7 +1,7 @@
 .header {
   height: 64px;
   background-color: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
   padding: 0 1rem;
   display: flex;
   align-items: center;

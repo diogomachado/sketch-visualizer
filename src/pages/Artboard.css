@@ -1,5 +1,5 @@
 .artboard-visualizer {
-  background: #ccc;
+  background: #f9f9f9;
   display: flex;
   height: calc(100vh - 64px);
   align-items: center;

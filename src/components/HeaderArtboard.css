@@ -1,10 +1,23 @@
-.header {
+.header-artboard {
+  position: relative;
   height: 64px;
   background-color: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
   padding: 0 1rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.header-artboard .left {
+  display: flex;
+  align-items: center;
+  flex: 0 200px;
+}
+
+.header-artboard .right {
+  flex: 0 200px;
+  background-color: red;
 }
 
 .separator {
@@ -14,4 +27,21 @@
 .close-button {
   border: none;
   background: none;
+}
+
+.artboard-navigation {
+  margin-left: 16px;
+}
+
+.artboard-navigation button {
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.artboard-navigation span {
+  padding: 0 12px;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 16px;
 }
