@@ -74,8 +74,9 @@ export default function DocumentsPage() {
       <section className="grid-documents">
         {artboards.map((artboard: any, index: number) => (
           <Link
-            to={`/artboard/${index.toString()}`}
+            to={`/artboard`}
             key={index}
+            state={{ artboardId: index, artboardName: artboard.name }}
             className="link"
           >
             <Artboard

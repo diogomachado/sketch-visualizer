@@ -3,30 +3,21 @@ import HeaderArtboard from "../components/HeaderArtboard";
 import Artboard from "../components/Artboard";
 import "./Artboard.css";
 import { getLocalStorage } from "../utils/localStorage";
-import { useParams } from "react-router";
+import { useLocation } from "react-router-dom";
 
 export default function ArtboardPage() {
-  let { id } = useParams();
+  let location = useLocation();
+  const { artboardId, artboardName } = location.state as any;
+
   const [artboard, setArtboard] = useState({
     files: [] as any,
   });
 
-  // useEffect to listener for keydown event
   useEffect(() => {
-    document.addEventListener("keydown", (event) => {
-      // TODO: add keydown event listener
-      if (event.key === "ArrowLeft") {
-      }
-      if (event.key === "ArrowRight") {
-      }
-    });
+    filterArtboardSelected(artboardId);
   }, []);
 
-  useEffect(() => {
-    filterArtboardSelected(Number(id));
-  }, []);
-
-  const filterArtboardSelected = (id: Number) => {
+  const filterArtboardSelected = (id: any) => {
     // Filter data saved localStorage
     const localData = getLocalStorage("artboards");
 
@@ -38,7 +29,7 @@ export default function ArtboardPage() {
 
   return (
     <div>
-      <HeaderArtboard title={document.title} />
+      <HeaderArtboard title={artboardName} />
 
       <section className="artboard-visualizer">
         <Artboard image={artboard.files[0]?.url} />
