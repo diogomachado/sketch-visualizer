@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import HeaderArtboard from "../components/HeaderArtboard";
 import Artboard from "../components/Artboard";
 import "./Artboard.css";
-import { getLocalStorage } from "../utils/localStorage";
+import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
 import { useLocation } from "react-router-dom";
 
 export default function ArtboardPage() {
@@ -14,6 +14,7 @@ export default function ArtboardPage() {
   });
 
   useEffect(() => {
+    setLocalStorage("artboardId", artboardId);
     filterArtboardSelected(artboardId);
   }, []);
 
