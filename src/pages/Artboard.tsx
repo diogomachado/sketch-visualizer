@@ -19,6 +19,8 @@ export default function ArtboardPage() {
   }, []);
 
   const filterArtboardSelected = (id: any) => {
+    console.log("filterArtboardSelected", id);
+
     // Filter data saved localStorage
     const localData = getLocalStorage("artboards");
 
@@ -30,7 +32,7 @@ export default function ArtboardPage() {
 
   return (
     <div>
-      <HeaderArtboard title={artboardName} />
+      <HeaderArtboard title={artboardName} callback={filterArtboardSelected} />
 
       <section className="artboard-visualizer">
         <Artboard image={artboard.files[0]?.url} />

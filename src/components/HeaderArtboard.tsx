@@ -1,17 +1,23 @@
 import "./HeaderArtboard.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import { getLocalStorage } from "../utils/localStorage";
+import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
 import { useEffect, useState } from "react";
 
-export default function HeaderArtboard({ title }: { title: string }) {
+export default function HeaderArtboard({ title, callback }: any) {
   const forwardArtboard = () => {
-    const artboardId = getLocalStorage("artboardId");
-    console.log("forwardArtboard", artboardId);
+    let artboardId = parseInt(getLocalStorage("artboardId"));
+    const newCounter = artboardId - 1;
+    setLocalStorage("artboardId", newCounter.toString());
+    callback(newCounter);
+    updateNavigation();
   };
 
   const previousArtboard = () => {
-    const artboardId = getLocalStorage("artboardId");
-    console.log("previousArtboard", artboardId);
+    let artboardId = parseInt(getLocalStorage("artboardId"));
+    const newCounter = artboardId + 1;
+    setLocalStorage("artboardId", newCounter.toString());
+    callback(newCounter);
+    updateNavigation();
   };
 
   const [navigationArtboard, setNavigationArtboard] = useState({
@@ -21,7 +27,11 @@ export default function HeaderArtboard({ title }: { title: string }) {
 
   // Initialize the navigation buttons
   useEffect(() => {
-    const artboardId = getLocalStorage("artboardId");
+    updateNavigation();
+  }, []);
+
+  const updateNavigation = () => {
+    const artboardId = parseInt(getLocalStorage("artboardId"));
     const artboards = getLocalStorage("artboards");
 
     // Initialize the navigation
@@ -30,7 +40,7 @@ export default function HeaderArtboard({ title }: { title: string }) {
       const right = artboards.length;
       return { ...prevState, left, right };
     });
-  }, []);
+  };
 
   return (
     <div className="header-artboard" data-testid="header">
