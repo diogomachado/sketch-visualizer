@@ -4,9 +4,16 @@ import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
 import { useEffect, useState } from "react";
 
 export default function HeaderArtboard({ title, callback }: any) {
+  const artboards = getLocalStorage("artboards");
+
   const forwardArtboard = () => {
     let artboardId = parseInt(getLocalStorage("artboardId"));
     const newCounter = artboardId - 1;
+
+    if (artboards.length === newCounter || newCounter < 0) {
+      return;
+    }
+
     setLocalStorage("artboardId", newCounter.toString());
     callback(newCounter);
     updateNavigation();
@@ -15,6 +22,11 @@ export default function HeaderArtboard({ title, callback }: any) {
   const previousArtboard = () => {
     let artboardId = parseInt(getLocalStorage("artboardId"));
     const newCounter = artboardId + 1;
+
+    if (artboards.length === newCounter) {
+      return;
+    }
+
     setLocalStorage("artboardId", newCounter.toString());
     callback(newCounter);
     updateNavigation();
@@ -32,7 +44,6 @@ export default function HeaderArtboard({ title, callback }: any) {
 
   const updateNavigation = () => {
     const artboardId = parseInt(getLocalStorage("artboardId"));
-    const artboards = getLocalStorage("artboards");
 
     // Initialize the navigation
     setNavigationArtboard((prevState) => {
