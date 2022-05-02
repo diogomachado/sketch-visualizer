@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
 import { useEffect, useState } from "react";
 
-export default function HeaderArtboard({ title, callback }: any) {
+export default function HeaderArtboard({ title, callback }: { title: string, callback?: any }) {
   const artboards = getLocalStorage("artboards");
 
   const forwardArtboard = () => {
@@ -48,7 +48,7 @@ export default function HeaderArtboard({ title, callback }: any) {
     // Initialize the navigation
     setNavigationArtboard((prevState) => {
       const left = artboardId + 1;
-      const right = artboards.length;
+      const right = artboards?.length;
       return { ...prevState, left, right };
     });
   };
@@ -66,7 +66,6 @@ export default function HeaderArtboard({ title, callback }: any) {
           alt="Separator"
         />
 
-        {/* TODO: Could create a separate component */}
         <div className="artboard-navigation" data-testid="artboard-navigation">
           <button onClick={forwardArtboard}>
             <img

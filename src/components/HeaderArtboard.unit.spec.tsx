@@ -1,18 +1,26 @@
 import { render, screen } from "@testing-library/react";
 import HeaderArtboard from "./HeaderArtboard";
+import { BrowserRouter, MemoryRouter as Router } from 'react-router-dom';
+
+
+const renderComponent = () => {
+  render(<HeaderArtboard title="My title" />, { wrapper: BrowserRouter });
+}
 
 describe("Header Component", () => {
-  it("should render the component", () => {
-    render(<HeaderArtboard title="My title" />);
+
+  fit("should render the component", () => {
+    renderComponent();
     expect(screen.getByTestId("header")).toBeInTheDocument();
   });
+
   it("should the component to have a title", () => {
-    const title = "My Title";
-    render(<HeaderArtboard title={title} />);
-    expect(screen.getByText(new RegExp(title, "i"))).toBeInTheDocument();
+    renderComponent();
+    expect(screen.getByText(new RegExp("My title", "i"))).toBeInTheDocument();
   });
+
   it("should the component to have a close button", () => {
-    render(<HeaderArtboard title="My title" />);
+    renderComponent();
     expect(screen.getByTestId("close-button")).toBeInTheDocument();
 
     expect(screen.getByTestId("close-image")).toBeInTheDocument();
@@ -20,16 +28,17 @@ describe("Header Component", () => {
       "/assets/close.svg"
     );
   });
+  
   it("should the component to have a separator image", () => {
-    render(<HeaderArtboard title="My title" />);
+    renderComponent();
     expect(screen.getByTestId("separator")).toBeInTheDocument();
     expect(screen.getByTestId("separator").getAttribute("src")).toContain(
       "/assets/separator.svg"
     );
   });
 
-  fit("should have a artboard navigation", () => {
-    render(<HeaderArtboard title="My title" />);
+  it("should have a artboard navigation", () => {
+    render(<HeaderArtboard title="My title" />, {wrapper: BrowserRouter});
     expect(screen.getByTestId("artboard-navigation")).toBeInTheDocument();
     expect(
       screen.getByTestId("artboard-navigation-left").getAttribute("src")

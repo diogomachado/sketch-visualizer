@@ -38,3 +38,4 @@ Your app is ready to be deployed!
 - Add SEO title and tags
 - We could set breakpoints media-queries adapting the software better on common screens
 - Add one shimmer effect to provide a better UX experience in the page loading
+- `artboard-navigation` could be a component separated
