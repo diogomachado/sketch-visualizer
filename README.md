@@ -4,7 +4,9 @@
 - Added .editorconfig to hold the project protected of different IDE configurations
 - The library `react-router-dom@6` was used to provide the capatility of have two routes
 
-## Available Scripts
+## Running the project
+
+### `yarn install`
 
 In the project directory, you can run:
 
