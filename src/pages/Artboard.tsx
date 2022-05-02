@@ -19,8 +19,6 @@ export default function ArtboardPage() {
   }, []);
 
   const filterArtboardSelected = (id: any) => {
-    console.log("filterArtboardSelected", id);
-
     // Filter data saved localStorage
     const localData = getLocalStorage("artboards");
 

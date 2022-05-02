@@ -59,7 +59,6 @@ export default function DocumentsPage() {
           title: response.data.share.version.document.name,
         });
         setArtboards(response.data.share.version.document.artboards.entries);
-        console.log(response.data.share.version.document.artboards.entries);
         setLocalStorage(
           "artboards",
           response.data.share.version.document.artboards.entries

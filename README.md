@@ -32,6 +32,7 @@ Your app is ready to be deployed!
 ## Notes
 
 - `<React.StrictMode>` will execute twice `useEffect` in dev environment
+- I decided to use simple CSS in this case, but I like to work with SASS for cases more complex
 
 ## Improvements
 
@@ -39,3 +40,7 @@ Your app is ready to be deployed!
 - We could set breakpoints media-queries adapting the software better on common screens
 - Add one shimmer effect to provide a better UX experience in the page loading
 - `artboard-navigation` could be a component separated
+- I don't like the code 7 to 34 in the component HeaderArtboard.tsx, I can improve this better with a code more clean
+- I would to create integrations tests using MirageJS a fake database, and then we not depents into a external data like the GraphqlQL
+- I'd like also to add one useContext to share the artboards between the components without passing callback child to parent
+- Yes, I could to use more the power of typescript, but I decided for a solution more easy
