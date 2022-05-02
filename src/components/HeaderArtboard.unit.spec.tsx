@@ -9,7 +9,7 @@ const renderComponent = () => {
 
 describe("Header Component", () => {
 
-  fit("should render the component", () => {
+  it("should render the component", () => {
     renderComponent();
     expect(screen.getByTestId("header")).toBeInTheDocument();
   });
